@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Livewire\MapaMenuPrincipal;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +25,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
 });
+
+Route::view('menuprincipal', 'livewire.menu.menuprincipal')->middleware('auth');
+Route::view('menuadmin', 'livewire.menuadmin.menuadmin')->middleware('auth');
+Route::get('/imagen/{id}', MapaMenuPrincipal::class)->name('imagen');
