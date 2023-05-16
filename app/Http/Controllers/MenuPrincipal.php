@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Departamento;
 class MenuPrincipal extends Controller
 {
     /**
@@ -36,6 +36,10 @@ class MenuPrincipal extends Controller
     public function show(string $id)
     {
         //
+        $departamento = Departamento::select('departamentos.id','departamentos.nombreDepartamento','departamentos.idedificio_fk','edificios.nombreEdificio','departamentos.encargado','departamentos.puestoTrabajo','departamentos.correo')
+        ->join('edificios','idedificio_fk','=','edificios.id')
+        ->where('departamentos.id','=',$id)->first();
+        return view('menuprincipal.show',compact('departamento'));
     }
 
     /**

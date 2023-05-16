@@ -19,6 +19,13 @@
 				<div class="card-body">
                     <img src="{{asset('img/'.$img->nombrearchivo)}}" alt="Mapa de la escuela">
                 </div>
+                <div class="float-left">
+				    <h5>Buscar por Edificio:</h5>
+                    @foreach($edificios as $edificio)
+                    <button class="btn btn-success m-1" wire:click="showEdificio({{$edificio->id}})"></i>{{$edificio->nombreEdificio}}</button>
+                    @endforeach
+
+				</div>
 			</div>
 		</div>
 	</div>

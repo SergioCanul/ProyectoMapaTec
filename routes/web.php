@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\MapaMenuPrincipal;
+use App\Http\Controllers\MenuPrincipal;
+use App\Http\Controllers\MenuAdmin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +29,8 @@ Route::middleware([
     })->name('dashboard');
 
 });
-
+Route::resource('/mapaprincipal', MenuPrincipal::class);
+Route::resource('/menuadmin', MenuAdmin::class);
 Route::view('menuprincipal', 'livewire.menu.menuprincipal')->middleware('auth');
 Route::view('menuadmin', 'livewire.menuadmin.menuadmin')->middleware('auth');
 Route::get('/imagen/{id}', MapaMenuPrincipal::class)->name('imagen');

@@ -40,8 +40,8 @@
 								<td>{{$row->encargado}}</td>
                                 <td>{{$row->puestoTrabajo}}</td>
 								<td width="90">
-								    <button class="btn btn-success" wire:click="showMap({{$row->idedificio_fk}})"></i>Ubicar</button>
-                                    <a class="btn btn-warning" href="/oportunidade/$row->id/edit"></i>Ver mas</a>
+                                    <button class="btn btn-success" wire:click="showMap({{$row->idedificio_fk}})"></i>Ubicar</button>
+                                    <a class="btn btn-warning" href="{{route('mapaprincipal.show', $row->id)}}"></i>Ver mas</a>
 								</td>
                                 @endforeach
 						</tbody>
